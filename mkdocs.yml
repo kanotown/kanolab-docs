@@ -1,6 +1,6 @@
 site_name: Kano Lab Docs
 
-repo_url: https://github.com/kanotown/docs
+repo_url: https://gitea.kano-lab.com/kano/kanolab-docs
 repo_name: Kano Lab Docs
 
 nav:
@@ -151,7 +151,7 @@ theme:
         icon: material/weather-sunny
         name: Switch to light mode
   icon:
-    repo: fontawesome/brands/github
+    repo: fontawesome/solid/mug-hot
 
 markdown_extensions:
   - attr_list

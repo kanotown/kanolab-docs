@@ -1,17 +1,45 @@
-# 本サイトについて
+# 加納研究室 ドキュメントサイト
 
-本サイトは、茨城大学 加納研究室 の資料置場です。  
-ナビゲーションメニューから各種資料を閲覧できます。
+## ようこそ
 
-## リンク
+本サイトは、茨城大学 加納研究室の技術資料・教育コンテンツを集約したドキュメントサイトです。  
+研究室メンバーの学習支援、技術共有、プロジェクト管理を目的としています。
 
-- 研究室サイト  
-  [https://kano-lab.com/](https://kano-lab.com/)
+## 主なコンテンツ
 
-- Kano's page  
-  [https://kano.ac/](https://kano.ac/)
+### 📚 プログラミング学習
 
-- Archives of Learning English and Japanese  
-  [https://blog.kano.ac/archive/](https://blog.kano.ac/archive/)
+#### Web 開発
 
-<br>
+- **HTML/CSS/JavaScript 入門** - Web サイト制作の基礎から応用まで
+- **教育システムデザイン** - インタラクティブな Web 教材の開発
+- **Kano Code** - オンラインコードエディタで実践学習
+
+#### デスクトップ開発
+
+- **Java** - GUI 開発、画像処理、OpenCV を活用した応用プログラミング
+- **Python** - データ分析、機械学習、画像処理の実装
+
+### 🎯 専門技術
+
+- **AR（拡張現実）** - VisionLib を使用した AR コンテンツ開発
+- **画像処理** - OpenCV による画像認識・処理技術
+- **CT スキャン** - 医療画像処理技術の研究
+
+### 🛠️ 開発ツール
+
+- **Git** - バージョン管理システムの使い方
+- **開発環境構築** - 各種プログラミング環境のセットアップガイド
+
+## 関連リンク
+
+- [加納研究室 公式サイト](https://kano-lab.com/)
+- [Kano's page](https://kano.ac/)
+- [Archives of Learning English and Japanese](https://blog.kano.ac/archive/)
+- [茨城大学工学部](https://www.eng.ibaraki.ac.jp/)
+
+## お問い合わせ
+
+研究室に関するお問い合わせは、[公式サイト](https://kano-lab.com/)のお問い合わせフォームをご利用ください。
+
+---

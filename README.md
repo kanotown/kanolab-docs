@@ -17,15 +17,29 @@ kanolab-docs/
 └── README.md          # このファイル
 ```
 
-## 自動デプロイ
-このリポジトリは Gitea Actions を使用した自動デプロイに対応しています。  
-`main` ブランチへのプッシュ時に自動的にサイトがデプロイされます。
+## ビルドとデプロイ
+
+### ローカルビルド方式
+このリポジトリはローカルでビルドした後、FTPで自動デプロイする方式を採用しています。
 
 ### デプロイフロー
-1. `main` ブランチへプッシュ
-2. Gitea Actions が自動実行
-3. ドキュメントをビルド
-4. サーバーへ自動デプロイ
+1. ローカルでドキュメントをビルド
+   ```bash
+   # Windows
+   build-and-deploy.bat
+   
+   # Linux/Mac
+   ./build-and-deploy.sh
+   ```
+
+2. ビルド結果（`/site`ディレクトリ）をコミット
+   ```bash
+   git add site/
+   git commit -m "Update documentation"
+   git push origin main
+   ```
+
+3. Gitea Actions が自動的にFTPデプロイを実行
 
 ## 開発環境
 ### ローカル開発

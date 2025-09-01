@@ -1,5 +1,5 @@
 # MkDocs build output
-site/
+# site/ はローカルビルド結果をコミットするため除外しない
 
 # Plugin caches
 .cache/

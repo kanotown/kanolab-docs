@@ -1,47 +1,21 @@
-name: Deploy Documentation
+name: Deploy Pre-built Documentation
 
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+    paths:
+      - 'site/**'
 
 jobs:
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: Setup Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: "3.x"
-
-      - name: Cache dependencies
-        uses: actions/cache@v3
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
-
-      - name: Install dependencies
-        run: |
-          pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: Build documentation
-        run: |
-          mkdocs build --clean --strict
 
       - name: Deploy to FTP server
-        if: gitea.event_name == 'push' && gitea.ref == 'refs/heads/main'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -56,11 +30,3 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
-
-      - name: Upload artifacts
-        if: gitea.event_name == 'pull_request'
-        uses: actions/upload-artifact@v3
-        with:
-          name: documentation
-          path: site/
-          retention-days: 7

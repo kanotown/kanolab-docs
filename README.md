@@ -64,7 +64,6 @@ Giteaのリポジトリ設定で以下のシークレット変数を設定して
 - `FTP_SERVER`: FTPサーバーのホスト名（例: ftp.example.com）
 - `FTP_USERNAME`: FTPユーザー名
 - `FTP_PASSWORD`: FTPパスワード
-- `FTP_SERVER_DIR`: アップロード先ディレクトリ（例: /public_html/ または ./ ）
 
 ## ライセンス
 研究室内部資料のため、適切な許可なく外部への公開は禁止されています。

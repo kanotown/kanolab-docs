@@ -11,18 +11,18 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
         with:
           fetch-depth: 0
-      
+
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.x'
-      
+          python-version: "3.x"
+
       - name: Cache dependencies
         uses: actions/cache@v3
         with:
@@ -30,25 +30,25 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
           restore-keys: |
             ${{ runner.os }}-pip-
-      
+
       - name: Install dependencies
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
-      
+
       - name: Build documentation
         run: |
           mkdocs build --clean --strict
-      
+
       - name: Deploy to FTP server
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: gitea.event_name == 'push' && gitea.ref == 'refs/heads/main'
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./site/
-          server-dir: ${{ secrets.FTP_SERVER_DIR }}
+          server-dir: ./
           protocol: ftps
           port: 21
           dangerous-clean-slate: false
@@ -56,9 +56,9 @@ jobs:
             **/.git*
             **/.git*/**
             **/node_modules/**
-      
+
       - name: Upload artifacts
-        if: github.event_name == 'pull_request'
+        if: gitea.event_name == 'pull_request'
         uses: actions/upload-artifact@v3
         with:
           name: documentation

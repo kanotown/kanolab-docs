@@ -21,6 +21,7 @@ kanolab-docs/
 
 ### ローカルビルド方式
 このリポジトリはローカルでビルドした後、FTPで自動デプロイする方式を採用しています。
+SSG: [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) 
 
 ### デプロイフロー
 1. ローカルでドキュメントをビルド
@@ -51,17 +52,17 @@ cd kanolab-docs
 
 2. 必要なツールのインストール
 ```bash
-# 静的サイトジェネレーター（例: MkDocs）をインストール
-pip install mkdocs
-# または
-npm install -g @vuepress/cli
+pip install -r requirements.txt
 ```
 
 3. ローカルサーバーの起動
 ```bash
 mkdocs serve
-# または
-vuepress dev docs
+```
+
+4. ビルド
+```bash
+mkdocs build
 ```
 
 ## 貢献方法
@@ -73,11 +74,8 @@ vuepress dev docs
 
 ## Gitea Actions の設定
 `.gitea/workflows/deploy.yml` に自動デプロイの設定が含まれています。  
-Giteaのリポジトリ設定で以下のシークレット変数を設定してください：
+以下のシークレット変数が設定されています。
 
-- `FTP_SERVER`: FTPサーバーのホスト名（例: ftp.example.com）
+- `FTP_SERVER`: FTPサーバーのホスト名
 - `FTP_USERNAME`: FTPユーザー名
 - `FTP_PASSWORD`: FTPパスワード
-
-## ライセンス
-研究室内部資料のため、適切な許可なく外部への公開は禁止されています。

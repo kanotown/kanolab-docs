@@ -189,8 +189,8 @@ extra_javascript:
 
 plugins:
   - git-revision-date-localized:
-      enable_creation_date: true
-      fallback_to_build_date: true
+      # enable_creation_date: true
+      # fallback_to_build_date: true
   - git-committers:
       repository: kanotown/docs
       branch: main

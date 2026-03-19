@@ -2,6 +2,7 @@ site_name: Kano Lab Docs
 
 repo_url: https://gitea.kano-lab.com/kano/kanolab-docs
 repo_name: Kano Lab Docs
+edit_uri: _edit/main/docs/
 
 nav:
   - HOME:
@@ -135,6 +136,7 @@ theme:
     - search.highlight
     - search.share
     - content.code.copy
+    - content.action.edit
   palette:
     # Palette toggle for light mode
     - scheme: default

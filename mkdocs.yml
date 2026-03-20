@@ -116,7 +116,6 @@ nav:
 theme:
   # language: ja
   name: material
-  custom_dir: overrides
   font:
     text: Noto Sans Japanese
   logo: img/chipmunk.png
@@ -158,9 +157,6 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
-      options:
-        custom_icons:
-          - overrides/.icons
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span

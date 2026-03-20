@@ -2,7 +2,7 @@
 加納研究室の資料置場
 
 ## 概要
-このリポジトリは、加納研究室のドキュメントサイトのソースコードです。  
+このリポジトリは、加納研究室のドキュメントサイトのソースコードです。
 研究資料、技術文書、チュートリアルなどを管理・公開しています。
 
 ## サイト
@@ -12,41 +12,34 @@
 ```
 kanolab-docs/
 ├── docs/              # ドキュメントファイル
-├── .gitea/            # Gitea Actions設定
+├── .github/           # GitHub Actions設定
 │   └── workflows/     # ワークフロー定義
 └── README.md          # このファイル
 ```
 
 ## ビルドとデプロイ
 
-### ローカルビルド方式
-このリポジトリはローカルでビルドした後、FTPで自動デプロイする方式を採用しています。
-SSG: [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/) 
+### 自動デプロイ方式
+`main` ブランチに push すると、GitHub Actions が自動的にビルドを実行し、GitHub Pages 経由で [docs.kano-lab.com](https://docs.kano-lab.com) に公開されます。
+**ユーザーがローカルでビルドする必要はありません。**
+
+SSG: [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
 
 ### デプロイフロー
-1. ローカルでドキュメントをビルド
-   ```bash
-   # Windows
-   build-and-deploy.bat
-   
-   # Linux/Mac
-   ./build-and-deploy.sh
-   ```
+1. `docs/` 以下のMarkdownファイルを編集
+2. `main` ブランチに push
+3. GitHub Actions が自動ビルド・デプロイを実行
 
-2. ビルド結果（`/site`ディレクトリ）をコミット
-   ```bash
-   git add site/
-   git commit -m "Update documentation"
-   git push origin main
-   ```
+## 編集方法
+`docs/` 以下のMarkdownファイルを編集し、`main` ブランチに push するだけです。
 
-3. Gitea Actions が自動的にFTPデプロイを実行
+### クラウド上で編集（推奨）
+[coder.kano-lab.com](https://coder.kano-lab.com) にアクセスし、MkDocs テンプレートのワークスペースを使うことで、ブラウザ上で編集できます。
 
-## 開発環境
-### ローカル開発
+### ローカルで編集
 1. リポジトリをクローン
 ```bash
-git clone https://gitea.example.com/kano-lab/kanolab-docs.git
+git clone https://github.com/kano-lab/kanolab-docs.git
 cd kanolab-docs
 ```
 
@@ -59,23 +52,3 @@ pip install -r requirements.txt
 ```bash
 mkdocs serve
 ```
-
-4. ビルド
-```bash
-mkdocs build
-```
-
-## 貢献方法
-1. このリポジトリをフォーク（Gitea上で）
-2. 新しいブランチを作成 (`git checkout -b feature/your-feature`)
-3. 変更をコミット (`git commit -m 'Add some feature'`)
-4. ブランチにプッシュ (`git push origin feature/your-feature`)
-5. プルリクエストを作成（Gitea上で）
-
-## Gitea Actions の設定
-`.gitea/workflows/deploy.yml` に自動デプロイの設定が含まれています。  
-以下のシークレット変数が設定されています。
-
-- `FTP_SERVER`: FTPサーバーのホスト名
-- `FTP_USERNAME`: FTPユーザー名
-- `FTP_PASSWORD`: FTPパスワード

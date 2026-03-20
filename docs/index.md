@@ -34,7 +34,6 @@
 
 - [加納研究室 公式サイト](https://kano-lab.com/)
 - [Kano's page](https://kano.ac/)
-- [Archives of Learning English and Japanese](https://blog.kano.ac/archive/)
 - [茨城大学工学部](https://www.eng.ibaraki.ac.jp/)
 
 ## お問い合わせ

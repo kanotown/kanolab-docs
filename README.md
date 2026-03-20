@@ -19,7 +19,7 @@ kanolab-docs/
 
 ## ビルドとデプロイ
 
-### 自動デプロイ方式
+### 自動デプロイ
 `main` ブランチに push すると、GitHub Actions が自動的にビルドを実行し、GitHub Pages 経由で [docs.kano-lab.com](https://docs.kano-lab.com) に公開されます。
 **ユーザーがローカルでビルドする必要はありません。**
 
@@ -33,8 +33,14 @@ SSG: [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/)
 ## 編集方法
 `docs/` 以下のMarkdownファイルを編集し、`main` ブランチに push するだけです。
 
-### クラウド上で編集（推奨）
+### クラウド上で編集
 [coder.kano-lab.com](https://coder.kano-lab.com) にアクセスし、MkDocs テンプレートのワークスペースを使うことで、ブラウザ上で編集できます。
+アクセスには研究室メンバー向けのトークンが必要です（別途案内）。
+
+編集前に最新の状態を取得してください。
+```bash
+git pull
+```
 
 ### ローカルで編集
 1. リポジトリをクローン
@@ -52,3 +58,6 @@ pip install -r requirements.txt
 ```bash
 mkdocs serve
 ```
+
+
+© 2026 Kano Lab Docs
